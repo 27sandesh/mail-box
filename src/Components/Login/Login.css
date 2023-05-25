@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.outer-box {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to top right, green, yellow);
+}
+.outer-box section {
+  font-family: "Courier New", Courier, monospace;
+  font-size: xx-large;
+  text-align: center;
+  font-weight: bolder;
+  padding: 30px 20px;
+}
+.inner-box {
+  width: 400px;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+  transform: translateY(1%);
+  padding: 20px 20px;
+  background-color: #ffffffc2;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px red;
+  z-index: 2;
+}
+h2 {
+  font-size: 2rem;
+  color: #212121;
+  text-align: center;
+  margin: 10px;
+}
+.sign-upbody {
+  margin: 10px 0px;
+  padding: auto;
+}
+.sign-upbody p {
+  margin: 10px 0px;
+}
+.sign-upbody label {
+  display: block;
+  text-align: center;
+  font-weight: bolder;
+}
+.sign-upbody input {
+  width: 350px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+}
+.submit {
+  background-color: #210489;
+  color: #ffffff;
+  width: 350px;
+  font-size: 1rem;
+  margin: 20px 0px;
+  padding: 5px;
+}
