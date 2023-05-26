@@ -2,7 +2,10 @@ import React from "react";
 import { useRef, useState } from "react";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { mailAction } from "../Store";
 const Login = () => {
+  const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const enterdEmail = useRef();
   const history = useHistory();
@@ -14,6 +17,7 @@ const Login = () => {
     event.preventDefault();
     const emailInput = enterdEmail.current.value;
     const passwordInput = enterdPassowrd.current.value;
+    dispatch(mailAction.setemail(emailInput));
 
     let url;
     if (isLoggedIn) {
@@ -37,6 +41,9 @@ const Login = () => {
       if (res.ok) {
         res.json().then((data) => {
           console.log(data);
+          console.log("Redirecting to Home page");
+          history.replace("/Home");
+          console.log("Redirected to Home page");
         });
       } else {
         res.json().then((data) => alert(data.error.message));
@@ -49,7 +56,7 @@ const Login = () => {
       <div className="inner-box">
         <form onSubmit={submitHandler}>
           <div className="sign-upbody">
-            <h2>{!isLoggedIn ? "Sign-up" : "Login"}</h2>
+            <h2>{isLoggedIn ? "Sign-up" : "Login"}</h2>
             <p>
               <label htmlFor="email">Email</label>
             </p>

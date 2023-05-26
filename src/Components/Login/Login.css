@@ -6,7 +6,6 @@
 .outer-box {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(to top right, green, yellow);
 }
 .outer-box section {
   font-family: "Courier New", Courier, monospace;
