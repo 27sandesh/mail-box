@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
+import Inbox from "./Components/Inbox/Inbox";
 function App() {
   return (
     <div>
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/Home">
             <Home />
+          </Route>
+          <Route path="/Inbox">
+            <Inbox />
           </Route>
         </Switch>
       </main>

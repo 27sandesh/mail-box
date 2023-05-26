@@ -11,6 +11,11 @@ const Header = () => {
           Login
         </NavLink>
       </div>
+      <div>
+        <NavLink as={Link} to="/Inbox">
+          Inbox
+        </NavLink>
+      </div>
     </div>
   );
 };
