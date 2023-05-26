@@ -6,6 +6,7 @@ const initialdataState = {
   senderMail: null,
   subject: null,
   content: null,
+  mailData: [],
 };
 
 const mailDataSlice = createSlice({
@@ -18,6 +19,16 @@ const mailDataSlice = createSlice({
       state.subject = action.payload;
       state.content = action.payload;
     },
+    deletedata(state, action) {
+      const { mailId } = action.payload;
+      if (state.mailData) {
+        const updatedData = state.mailData.filter((mail) => mail.id !== mailId);
+        state.mailData = updatedData;
+      }
+    },
+    setMailData(state, action) {
+      state.mailData = action.payload;
+    },
   },
 });
 
@@ -27,6 +38,19 @@ const mailSlice = createSlice({
   reducers: {
     setemail(state, action) {
       state.mail = action.payload;
+    },
+    markAsRead(state, action) {
+      const { mailId } = action.payload;
+      if (state.mailData) {
+        const updatedMailData = state.mailData.map((mail) => {
+          if (mail.id === mailId) {
+            return { ...mail, read: true };
+          } else {
+            return mail;
+          }
+        });
+        state.mailData = updatedMailData;
+      }
     },
   },
 });

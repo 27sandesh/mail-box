@@ -74,7 +74,7 @@ const Login = () => {
               </div>
             )}
             <button className="submit" onClick={swithAuthmodehandler}>
-              {isLoggedIn ? "login" : "create-Account"}
+              {!isLoggedIn ? "create-Account" : "login"}
             </button>
           </div>
         </form>
