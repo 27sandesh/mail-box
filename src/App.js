@@ -4,6 +4,7 @@ import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import Inbox from "./Components/Inbox/Inbox";
+import SentBox from "./Components/sentbox/SentBox";
 function App() {
   return (
     <div>
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/Inbox">
             <Inbox />
+          </Route>
+          <Route path="/SentBox">
+            <SentBox />
           </Route>
         </Switch>
       </main>

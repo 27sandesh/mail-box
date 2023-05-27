@@ -3,9 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+section {
+  font-size: large;
+  color: blueviolet;
+}
 .outer-box {
   width: 100vw;
   height: 100vh;
+  background-image: url("https://preview.redd.it/inikbmbe59g31.jpg?auto=webp&s=be0d0a23533a32fbc8ab4f479814131b52c9ed13");
+  background-size: cover;
+  background-position: 0%, 0%;
 }
 .outer-box section {
   font-family: "Courier New", Courier, monospace;
@@ -19,11 +26,11 @@
   margin: 0 auto;
   position: relative;
   top: 100px;
-  transform: translateY(1%);
+  transform: translateY(-20%);
   padding: 20px 20px;
-  background-color: #ffffffc2;
+  background-color: transparent;
   border-radius: 8px;
-  box-shadow: 5px 5px 10px red;
+  box-shadow: 5px 5px 10px yellowgreen;
   z-index: 2;
 }
 h2 {
@@ -31,6 +38,8 @@ h2 {
   color: #212121;
   text-align: center;
   margin: 10px;
+  color: gold;
+  font-family: cursive;
 }
 .sign-upbody {
   margin: 10px 0px;
@@ -43,6 +52,8 @@ h2 {
   display: block;
   text-align: center;
   font-weight: bolder;
+  color: aqua;
+  font-family: cursive;
 }
 .sign-upbody input {
   width: 350px;
@@ -57,4 +68,5 @@ h2 {
   font-size: 1rem;
   margin: 20px 0px;
   padding: 5px;
+  font-family: cursive;
 }
