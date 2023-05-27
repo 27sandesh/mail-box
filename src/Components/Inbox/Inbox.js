@@ -9,27 +9,36 @@ const Inbox = () => {
   const senderMail = useSelector((state) => state.data.senderMail);
 
   useEffect(() => {
-    fetch("https://mail-box-client-7a179-default-rtdb.firebaseio.com/mail.json")
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("Failed to fetch emails");
-        }
-      })
-      .then((data) => {
-        const filteredData = Object.entries(data)
-          .map(([id, mail]) => ({
-            id,
-            ...mail,
-          }))
-          .filter((mail) => mail.recipientEmail === userMail);
-        setMailData(filteredData);
-        dispatch(dataAction.setMailData(filteredData));
-      })
-      .catch((error) => {
-        console.log("Error:", error);
-      });
+    const fetchData = () => {
+      fetch(
+        "https://mail-box-client-7a179-default-rtdb.firebaseio.com/mail.json"
+      )
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw new Error("Failed to fetch emails");
+          }
+        })
+        .then((data) => {
+          const filteredData = Object.entries(data)
+            .map(([id, mail]) => ({
+              id,
+              ...mail,
+            }))
+            .filter((mail) => mail.recipientEmail === userMail);
+          setMailData(filteredData);
+          dispatch(dataAction.setMailData(filteredData));
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+        });
+    };
+    fetchData();
+    const IntervalId = setInterval(fetchData, 2000);
+    return () => {
+      clearInterval(IntervalId);
+    };
   }, [userMail, senderMail]);
 
   const renderContent = (content) => {
