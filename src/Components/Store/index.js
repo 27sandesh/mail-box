@@ -7,6 +7,7 @@ const initialdataState = {
   subject: null,
   content: null,
   mailData: [],
+  newMsgCount: 0,
 };
 
 const mailDataSlice = createSlice({
@@ -28,6 +29,9 @@ const mailDataSlice = createSlice({
     },
     setMailData(state, action) {
       state.mailData = action.payload;
+    },
+    setnewMsgCount(state, action) {
+      state.newMsgCount = action.payload;
     },
   },
 });
@@ -54,14 +58,28 @@ const mailSlice = createSlice({
     },
   },
 });
-
+const initialAuthState = { isAuthciated: false, token: null };
+const AuthSlice = createSlice({
+  name: "auth",
+  initialState: initialAuthState,
+  reducers: {
+    login(state, action) {
+      state.isAuthciated = true;
+      state.token = action.payload;
+    },
+    logout(state) {
+      state.isAuthciated = false;
+    },
+  },
+});
 const Store = configureStore({
   reducer: {
     mail: mailSlice.reducer,
     data: mailDataSlice.reducer,
+    auth: AuthSlice.reducer,
   },
 });
-
+export const AuthAction = AuthSlice.actions;
 export const mailAction = mailSlice.actions;
 export const dataAction = mailDataSlice.actions;
 export default Store;

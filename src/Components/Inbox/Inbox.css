@@ -1,0 +1,28 @@
+p {
+  margin: 10px;
+  font-family: cursive;
+  margin-left: 40px;
+}
+li {
+  margin: 10px;
+}
+ul {
+  margin: 30px;
+}
+.mark {
+  background-color: burlywood;
+  margin-left: 20px;
+  color: black;
+  font-weight: bold;
+  font-family: cursive;
+  height: 30px;
+  width: 100px;
+}
+.delete {
+  background-color: crimson;
+  height: 30px;
+  width: 100px;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: large;
+}

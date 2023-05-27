@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 section {
   font-size: large;
   color: blueviolet;
@@ -12,7 +13,7 @@ section {
   height: 100vh;
   background-image: url("https://preview.redd.it/inikbmbe59g31.jpg?auto=webp&s=be0d0a23533a32fbc8ab4f479814131b52c9ed13");
   background-size: cover;
-  background-position: 0%, 0%;
+  background-repeat: no-repeat;
 }
 .outer-box section {
   font-family: "Courier New", Courier, monospace;

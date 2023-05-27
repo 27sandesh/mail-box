@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { mailAction } from "../Store";
+import { mailAction, AuthAction } from "../Store";
 const Login = () => {
   const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,9 +40,11 @@ const Login = () => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
+          dispatch(AuthAction.login(data.idToken));
           console.log(data);
           console.log("Redirecting to Home page");
           history.replace("/Home");
+
           console.log("Redirected to Home page");
         });
       } else {
@@ -56,7 +58,7 @@ const Login = () => {
       <div className="inner-box">
         <form onSubmit={submitHandler}>
           <div className="sign-upbody">
-            <h2>{isLoggedIn ? "Sign-up" : "Login"}</h2>
+            <h2>{!isLoggedIn ? "Login" : "Sign-up"}</h2>
             <p>
               <label htmlFor="email">Email</label>
             </p>
@@ -65,7 +67,7 @@ const Login = () => {
               <label htmlFor="password">password</label>
             </p>
             <input type="password" required ref={enterdPassowrd}></input>
-            {!isLoggedIn && (
+            {isLoggedIn && (
               <div>
                 <p>
                   <label htmlFor="password">Confirm password</label>
@@ -74,7 +76,7 @@ const Login = () => {
               </div>
             )}
             <button className="submit" onClick={swithAuthmodehandler}>
-              {!isLoggedIn ? "create-Account" : "login"}
+              {!isLoggedIn ? "login" : "create-Account"}
             </button>
           </div>
         </form>

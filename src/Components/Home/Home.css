@@ -1,0 +1,63 @@
+.to {
+  display: block;
+  font-size: x-large;
+  font-family: cursive;
+  margin-top: 5px;
+  margin-left: 600px;
+}
+
+.emailInput {
+  width: 300px;
+  height: 30px;
+  margin-left: 500px;
+  display: block;
+  font-size: x-large;
+}
+
+.subjectInput {
+  height: 50px;
+  width: 300px;
+  margin-left: 500px;
+  font-size: large;
+}
+.Subject {
+  margin-top: 10px;
+  margin-left: 550px;
+  font-size: x-large;
+  display: block;
+  color: black;
+  font-family: cursive;
+}
+.toolbarClassName {
+  width: 90%;
+  margin-left: 40px;
+  margin-top: 30px;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 10px red;
+}
+.editorClassName {
+  box-shadow: 5px 5px 10px yellow;
+  box-sizing: border-box;
+  width: 90%;
+  height: 250px;
+  margin-left: 40px;
+  background: black;
+  color: whitesmoke;
+}
+.button {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(39, 21, 145);
+  color: aliceblue;
+  font-size: xx-large;
+  margin-left: 550px;
+  margin-top: 10px;
+  font-family: cursive;
+}
+button:hover {
+  background-color: aqua;
+  font-family: cursive;
+}
+.editorClassName:hover {
+  color: white;
+}

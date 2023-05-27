@@ -4,6 +4,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, convertFromRaw } from "draft-js";
 import { useSelector, useDispatch } from "react-redux";
 import { dataAction } from "../Store";
+import "./Home.css";
 const Home = () => {
   const dispatch = useDispatch();
   const senderMail = useSelector((state) => state.mail.mail);
@@ -54,6 +55,7 @@ const Home = () => {
         }
       })
       .then((data) => {
+        alert("email sent");
         console.log("Email sent:", data);
         dispatch(dataAction.setdata(data));
       })
@@ -85,21 +87,34 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <form onSubmit={SubmitHandler}>
-        <label htmlFor="email">To</label>
-        <input type="email" name="email" />
-        <label htmlFor="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" />
-        <Editor
-          editorState={editorState}
-          toolbarClassName="toolbarClassName"
-          wrapperClassName="wrapperClassName"
-          editorClassName="editorClassName"
-          onEditorStateChange={onEditorStateChange}
-        />
-        <button type="submit">Send</button>
-      </form>
+    <div className="outer">
+      <div className="inner">
+        <form onSubmit={SubmitHandler}>
+          <label htmlFor="email" className="to">
+            To:
+          </label>
+          <input type="email" name="email" className="emailInput" />
+          <label htmlFor="subject" className="Subject">
+            Subject:
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            className="subjectInput"
+          />
+          <Editor
+            editorState={editorState}
+            toolbarClassName="toolbarClassName"
+            wrapperClassName="wrapperClassName"
+            editorClassName="editorClassName"
+            onEditorStateChange={onEditorStateChange}
+          />
+          <button type="submit" className="button">
+            Send
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
